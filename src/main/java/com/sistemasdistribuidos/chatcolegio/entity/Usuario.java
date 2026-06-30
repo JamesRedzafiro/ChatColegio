@@ -26,11 +26,13 @@ public class Usuario {
     
     private String apellidos;
 
+    private String avatarUrl;
+
     @Enumerated(EnumType.STRING) 
-    private Rol rol; 
+    private RolUsuario rol; 
 
-    @Column(name = "estado_activo")
-    private boolean estadoActivo; 
+    @Enumerated(EnumType.STRING) 
+    private MessageStatus status; 
 
-    private LocalDateTime fecha; 
+    private LocalDateTime lastSeenAt; 
 }

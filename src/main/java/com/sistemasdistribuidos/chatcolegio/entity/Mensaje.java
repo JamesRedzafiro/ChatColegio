@@ -23,10 +23,13 @@ public class Mensaje {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @Column(name = "client_message_id", nullable = true)
+    private String clientMessageId;
+
     //Relación al hilo de la conversación
     @ManyToOne
     @JoinColumn(name = "hilo_id")
-    private ConversacionHilo hilo;
+    private Conversation hilo;
 
     //Relación al usuario que envía el mensaje
     @ManyToOne
@@ -37,8 +40,9 @@ public class Mensaje {
     private String contenido;
 
     @Column(name = "timestamp_servidor")
-    private LocalDateTime timestampServidor;
+    private LocalDateTime createdAt;
 
     @Enumerated(EnumType.STRING)
-    private EstadoMensaje estado; 
+    @Column(name = "estado", nullable = false)
+    private MessageStatus status = MessageStatus.SENT; 
 }
