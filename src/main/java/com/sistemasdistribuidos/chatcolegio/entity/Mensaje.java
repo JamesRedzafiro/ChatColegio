@@ -45,4 +45,6 @@ public class Mensaje {
     @Enumerated(EnumType.STRING)
     @Column(name = "estado", nullable = false)
     private MessageStatus status = MessageStatus.SENT; 
+
+    
 }
